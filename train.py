@@ -175,7 +175,7 @@ model = load_model("best_model.hdf5")
 lb = pickle.loads(open("label_bin.pickle", "rb").read())
 
 labels = [label for _, label in tree_indict.items()]
-confusion = ConfusionMatrix(num_classes=6, labels=labels)
+confusion = ConfusionMatrix(num_classes=classnum, labels=labels)
 
 for step in tqdm(range(math.ceil(total_val / batch_size))):
         val_images, val_labels = next(val_generator)
